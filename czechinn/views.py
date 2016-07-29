@@ -74,8 +74,11 @@ def transactional(request, patient_id=None):
                 'last_name': last,
                 'date_of_birth': data['date_of_birth'],
             }
-            patient = adapter(request, 'get', 'patients_summary', extra)['results'][0]
-            return redirect(request.GET['next'], patient['id'])
+            try:
+                patient = adapter(request, 'get', 'patients_summary', extra)['results'][0]
+                return redirect(request.GET['next'], patient['id'])
+            except:
+                raise Http404("No patient found matching those credentials")
 
     return render(request, 'actions/transactional.html', context)
 
