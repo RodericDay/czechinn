@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">
+{% csrf_token %}
+<input type="hidden" name="patient_id" value="{{patient_id}}" />
+<table class="table">{{form.as_table}}</table>
+<input class="btn btn-primary" type="submit" value="Update information" />
+</form>
+{% endblock %}

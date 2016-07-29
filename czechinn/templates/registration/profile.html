@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Your access key starts with <b>{{request.user.profile.access_token|slice:"5"}}</b></p>
+<strong>actions</strong>
+<ul>
+  <li><a href="{{auth_url}}">authenticate</a>
+</ul>
+
+<strong>reporting</strong>
+<ul>
+  <li><a href="{% url 'json-table' %}?q=doctors">doctors</a>
+  <li><a href="{% url 'json-table' %}?q=patients">patients</a>
+  <li><a href="{% url 'json-table' %}?q=appointments">today's appointments</a>
+  <li><a href="{% url 'json-table' %}?q=offices">offices</a>
+</ul>
+<a href="{% url 'logout' %}">log out</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>To protect your information, please provide some identification:</p>
+<form method="post">
+{% csrf_token %}
+<table class="table">{{form.as_table}}</table>
+<input class="btn btn-primary" type="submit" value="Proceed" />
+</form>
+{% endblock %}

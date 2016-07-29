@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table">{{form.as_table}}</table>
+
+<form method="post">
+{% csrf_token %}
+<input type="submit" value="Check in" />
+<input type="submit" name="cancel" value="Cancel" />
+</form>
+{% endblock %}

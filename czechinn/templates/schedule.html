@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.0/fullcalendar.min.css' />
+<script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.0/fullcalendar.min.js'></script>
+{% endblock %}
+{% block content %}
+<div id='calendar'></div>
+<script>
+$(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: '',
+        },
+        height: 600,
+        width: 600,
+        defaultView: 'agendaWeek',
+        weekends: false,
+        events: [
+        {% for entry in results %}
+            {
+                title: '{{entry.patient}}',
+                start: '{{entry.scheduled_time}}',
+                end:    $.fullCalendar
+                        .moment('{{entry.scheduled_time}}')
+                        .add({{entry.duration}}, 'minutes'),
+            },
+        {% endfor %}
+        ]
+    });
+});
+</script>
+{% endblock %}

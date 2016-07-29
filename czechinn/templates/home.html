@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+<a class="btn btn-primary" href="{% url 'new-patient' %}">Create new patient file</a>
+<a class="btn btn-primary" href="{% url 'transactional' %}?next=new-appointment">Make a new appointment</a>
+</div>
+<div>
+<a class="btn btn-primary" href="{% url 'transactional' %}?next=check-in">Check into an appointment</a>
+<a class="btn btn-primary" href="{% url 'transactional' %}?next=update-information">Update personal information</a>
+</div>
+{% endblock %}
