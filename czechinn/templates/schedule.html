@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block nav %}
+{% endblock %}
 {% block head %}
 <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.9.0/fullcalendar.min.css' />
 <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js'></script>
@@ -21,7 +23,7 @@ $(function() {
         events: [
         {% for entry in results %}
             {
-                title: '{{entry.patient}}',
+                title: '{{entry.status}}',
                 start: '{{entry.scheduled_time}}',
                 end:    $.fullCalendar
                         .moment('{{entry.scheduled_time}}')
