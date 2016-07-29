@@ -1,6 +1,4 @@
-To-do
-=====
+CzechInn
+========
 
-- Ugly
-- Hardcoded values
-- Login everywhere doesn't redirect
+Job interview mini project. Think layer to the DrChrono API.
