@@ -1,10 +1,8 @@
-CzechInn
-========
+# CzechInn
 
-Job interview mini project. Think layer to the DrChrono API.
+Job interview mini project. Thin layer to the DrChrono API.
 
-Notes
------
+### Notes
 
 Authenticate will not work on development server.
 Check live version if key is required.
